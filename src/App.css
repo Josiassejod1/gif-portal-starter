@@ -1,8 +1,10 @@
 .App {
   height: 100vh;
-  background-color: #1a202c;
   overflow: scroll;
   text-align: center;
+  background-image: url('assets/training.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container {
