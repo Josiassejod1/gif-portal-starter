@@ -1,6 +1,7 @@
 import twitterLogo from './assets/twitter-logo.svg';
 import mvc2Logo from './assets/mvc2_logo.png';
 import './App.css';
+import {TEST_DATA} from './assets/shared/const';
 import React, { useEffect, useState } from 'react';
 
 // Constants
@@ -11,11 +12,11 @@ const App = () => {
   const [walletAddress, setAddress] = useState(null);
 
   const renderNotConnectedContainer = () => {
-    <button
-    className="cta-button connect-wallet-button"
-    onClick={connectWallet}>
-        Connect Wallet
-    </button>
+    return(<button
+      className="cta-button connect-wallet-button"
+      onClick={connectWallet}>
+          Connect Wallet
+      </button>)
   }
 
   const connectWallet = async () => {
@@ -26,6 +27,20 @@ const App = () => {
       console.log("Connected with Public Key:", response);
       setAddress(response.publicKey.toString());
     }
+  }
+
+  const renderConnectedContainer = () => {
+    return(
+      <div className="connected-container">
+      <div className="gif-grid">
+        {TEST_DATA.map(image => (
+          <div className="gif-item" key={image} >
+            <img src={image} alt={image} width="100" height="100" />
+          </div>
+        ))}
+      </div>
+    </div>
+    )
   }
 
   const connectButton   = async ()  => {
@@ -70,6 +85,7 @@ const App = () => {
             View your Hero collection in the metaverse ✨
           </p>
           {!walletAddress && renderNotConnectedContainer()}
+          {walletAddress && renderConnectedContainer()}
         </div>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
