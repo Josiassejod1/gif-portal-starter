@@ -61,9 +61,15 @@
 }
 
 .submit-gif-button {
-  background: -webkit-linear-gradient(left, #4e44ce, #35aee2);
+  background: red;
   background-size: 200% 200%;
-  animation: gradient-animation 4s ease infinite;
+  margin-left: 10px;
+}
+
+.search-gif-button {
+  background: blue;
+  background-size: 200% 200%;
+  color: white;
   margin-left: 10px;
 }
 
@@ -102,6 +108,11 @@
   height: 100px;
   border-radius: 10px;
   padding: 5px;
+}
+
+submit-gif-button:disabled {
+  background-color: gray;
+  color: white;
 }
 
 .connected-container input[type='text'] {
