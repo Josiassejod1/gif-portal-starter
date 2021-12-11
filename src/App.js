@@ -4,7 +4,6 @@ import "./App.css";
 import { TEST_DATA } from "./assets/shared/const";
 import React, { useEffect, useState, useRef } from "react";
 import idl from './idl.json';
-import Badge from '@material-ui/core/Badge';
 import { Connection, PublicKey, clusterApiUrl } from '@solana/web3.js';
 import { Program, Provider, web3 } from '@project-serum/anchor';
 import kp from './keypair.json';
@@ -191,13 +190,11 @@ const App = () => {
                 {
                   mintedList?.map((character) => (
                     <div   className="gif-grid">
-                       <Badge badgeContent={hash[character.gifLink]} color="primary">
                       <div className="gif-item" key={character.gifLink}>
                      
                       <img src={character.gifLink} alt={character.gifLink} width="100" height="100"/>
                       <p className="sub-text" style={{fontSize: 12, overflow: "hidden", textOverflow: "ellipsis", width: 100}}> character minted by: {character.userAddress.toString()}</p>
                     </div>
-                    </Badge>
                     </div>
                   ))
                 }
